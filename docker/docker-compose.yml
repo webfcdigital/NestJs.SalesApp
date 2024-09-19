@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  app:
+    container_name: nestjs-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://webfc:NestJS@2024@db:5432/mydb
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: webfc
+      POSTGRES_PASSWORD: NestJS@2024
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
