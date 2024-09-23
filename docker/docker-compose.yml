@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  app:
+    container_name: Mouts-123Vendas-app
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+     - NODE_ENV=development
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USERNAME=webfc
+      - DB_PASSWORD=NestJS@2024
+      - DB_NAME=Mouts.123vendas
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: webfc
+      POSTGRES_PASSWORD: NestJS@2024
+      POSTGRES_DB: Mouts.123vendas
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
