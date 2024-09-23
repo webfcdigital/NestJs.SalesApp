@@ -48,11 +48,11 @@ import * as winston from 'winston';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get<string>('DB_HOST', 'localhost'),
+        host: configService.get<string>('DB_HOST', 'db'),
         port: configService.get<number>('DB_PORT', 5432),
-        username: configService.get<string>('DB_USERNAME', 'postgres'),
-        password: configService.get<string>('DB_PASSWORD', 'password'),
-        database: configService.get<string>('DB_NAME', '123vendas'),
+        username: configService.get<string>('DB_USERNAME', 'webfc'),
+        password: configService.get<string>('DB_PASSWORD', 'NestJS@2024'),
+        database: configService.get<string>('DB_NAME', 'Mouts.123vendas'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'], // Carrega automaticamente as entidades
         synchronize: true, // Não recomendado para produção
       }),

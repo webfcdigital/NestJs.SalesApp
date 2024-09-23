@@ -21,4 +21,4 @@ spec:
         - name: NODE_ENV
           value: "production"
         - name: DATABASE_URL
-          value: "postgres://webfc:NestJS@2024@db:5432/mydb"
+          value: "postgres://webfc:123Vendas@db:5432/Mouts.123Vendas"

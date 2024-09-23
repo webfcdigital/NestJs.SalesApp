@@ -1,8 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { ProdutoVenda } from './produto-venda.entity';
+import { Field } from '@nestjs/graphql';
 
 @Entity('vendas')
 export class Venda {
+  
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
@@ -11,7 +13,8 @@ export class Venda {
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   valorTotal: number;
-
+  
+  @Field(() => String)
   @Column()
   clienteId: string; // External Identity (CRM)
 

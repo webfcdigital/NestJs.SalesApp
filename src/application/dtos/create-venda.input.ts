@@ -1,7 +1,6 @@
-import { InputType, Field, Float } from '@nestjs/graphql';
+import { InputType, Field, Float, ObjectType } from '@nestjs/graphql';
 import {
   IsNotEmpty,
-  IsString,
   IsUUID,
   IsArray,
   ValidateNested,
@@ -11,6 +10,7 @@ import { CreateVendaItemInput } from './create-venda-item.input';
 
 
 @InputType()
+@ObjectType()
 export class CreateVendaInput {
   @Field(() => String)
   @IsUUID()
